@@ -1,0 +1,128 @@
+
+{% from 'bootstrap4/utils.html' import render_messages %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        {% block syles %}
+            <!-- Bootstrap CSS  -->
+            {{ bootstrap.load_css() }}
+        <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+        <link rel="icon" type="image/x-icon" href="/static/assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!--  J Query  -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        {% endblock %} <!-- styles -->
+
+        <title>Vox Image Generator
+        {% block title %}
+        {% endblock %}
+        </title>
+        {% endblock %} <!-- head -->
+
+
+    </head>
+    <body>
+        <div id="page-container">
+            <div id="content-wrap">
+                <!-- Navigation-->
+                <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+                    <div class="container px-4 px-lg-5">
+                        <a class="navbar-brand" href=""><img style="display:block;" width="50%" height="100%" src="/static/assets/img/voxaraz-logo.svg" alt="voxaraz-Logo"></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            Menu
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                              <li><a href="">picture generation</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- For Flashed messages  -->
+                <div class="flashwrapper">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div id=flashwrapper class="alert alert-dismissible fade show alert-{{category}}">
+                                <span>{{message}}</span>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                </div>
+                <div id='content-spacer'></div>
+
+                <!-- CONTENT BLOCK  -->
+
+                {% block content %} {% endblock%}
+
+
+                 <!-- FOOTER -->
+                <footer id="footer" class="border-top footer">
+                    <div class="container px-4 px-lg-5">
+                        <div class="row  gx-4 gx-lg-5 justify-content-center">
+                            <div class="col-md-10 col-lg-8 col-xl-7">
+                                <ul class="list-inline text-center">
+                                    <li class="list-inline-item">
+                                        <a href="">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fas fa-bold fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fas fa-phone fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fas fa-headphones fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fas fa-microphone-alt fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="small text-center text-muted fst-italic">Copyright &copy; voxaraz 2022</div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+
+
+    </body>
+</html>
+
+
+
+

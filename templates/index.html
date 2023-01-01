@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  {% extends "layout.html" %} {% from 'bootstrap5/form.html' import render_form_row, render_form %} {% block content %} <!-- Page content-->
+  <div>
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-lg-8 col-sm"></div>
+            <h1>Welcome to Vox-ai</h1>
+            <h2><a href="{{ url_for('new_image') }}">Generate an image</a></h2>
+
+      </div>
+    </div>
+  </div>
+  {% endblock content %} 
+  {% block footercss %} page-footer {% endblock footercss %}
+</body>
+</html>
