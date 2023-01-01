@@ -13,7 +13,7 @@
             <h1>Generated Images</h1>
             {% for image in images %}
               <img class="result-image" src="{{ image }}" alt="">
-              <p>link <<a href="{{ image }}">Source link</a></p>
+              <p>link <a href="{{ image }}">Source link</a></p>
             {% endfor %}
             <h2><a href="{{ url_for('new_image') }}">Generate a new image</a></h2>
 
